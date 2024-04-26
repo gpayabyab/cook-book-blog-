@@ -48,3 +48,12 @@ export const login = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+exports.logout = async (req, res) => {
+  try {
+    // Clear the token from the client-side (e.g., remove from local storage)
+    res.status(200).json({ message: 'Logout successful' });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send('Server Error');
+  }
+};
