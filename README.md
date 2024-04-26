@@ -1,4 +1,5 @@
 # Cook Book Blog 
+ This is project is a full stack web application buill using React, Node.js, Express, MongoDB, and Bootstrap. It is a blog application where users can create, read, update, and delete recipes. 
 
 ## Installation
 
