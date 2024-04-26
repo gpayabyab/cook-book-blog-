@@ -1,35 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import React from 'react';
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import NavigationBar from './components/NavigationBar';
+import RecipeList from './components/RecipeList';
+import RecipeDetail from './components/RecipeDetail';
+import AddRecipe from './components/AddRecipe';
+import EditRecipe from './components/EditRecipe';
+import Login from './components/Login';
+import Footer from './components/Footer'; // Make sure to import the Footer component
+import './App.css';
+import store from './utils/store'; // Update this path as necessary
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Provider store={store}>
+      <Router>
+        <NavigationBar />
+        <div className="container">
+          <Switch>
+            <Route path="/" exact component={RecipeList} />
+            <Route path="/login" component={Login} />
+            <Route path="/add-recipe" component={AddRecipe} />
+            <Route path="/edit-recipe/:id" component={EditRecipe} />
+            <Route path="/recipes/:id" component={RecipeDetail} />
+            {/* Additional routes can be added here */}
+          </Switch>
+        </div>
+        <Footer />
+      </Router>
+    </Provider>
+  );
 }
-
-export default App
+export default App;
