@@ -1,1 +1,21 @@
-z
+/* RecipeDetail.css */
+
+.recipe-detail {
+  background-color: #fff;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.recipe-detail h1 {
+  margin-top: 0;
+}
+
+.recipe-detail h3 {
+  margin-top: 20px;
+}
+
+.recipe-detail ul, .recipe-detail ol {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 20px;
+}
