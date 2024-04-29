@@ -13,7 +13,6 @@ const typeDefs = `
   },
   type Query {
 
-  },
   type Mutation {
     addUser
     login 
