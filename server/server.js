@@ -15,13 +15,7 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
 });
-//complete code below
-// const startApolloServer = {};
 
-//startApolloServer();
-
-
-//  Not sure if this is needed
 // Apply Apollo GraphQL middleware to Express
 server.applyMiddleware({ app });
 
