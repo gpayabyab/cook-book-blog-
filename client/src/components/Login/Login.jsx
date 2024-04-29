@@ -1,38 +1,69 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 function Login({ onLogin }) {
+  const [isRegister, setIsRegister] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const endpoint = isRegister ? '/api/auth/register' : '/api/auth/login';
     try {
-      const response = await axios.post('/api/auth/login', { email, password });
-      onLogin(response.data);  // Pass the logged in user's data up to the parent component or handle it however you see fit
-      // Redirect or further actions after successful login
-      console.log('Login successful:', response.data);
+      const response = await axios.post(endpoint, { email, password });
+      if (isRegister) {
+        console.log('Registration successful:', response.data);
+        setIsRegister(false); // Switch to login view after successful registration
+      } else {
+        console.log('Login successful:', response.data);
+        onLogin(response.data); // handle login
+      }
+      setError('');
     } catch (err) {
-      setError('Failed to login. Please check your credentials.');
-      console.error('Login error:', err);
+      setError('An error occurred. Please try again.');
+      console.error('Error:', err);
     }
+  };
+  const toggleMode = () => {
+    setIsRegister(!isRegister);
+    setError('');
   };
   return (
     <div>
-      <h2>Login</h2>
+      <h2>{isRegister ? 'Register' : 'Login'}</h2>
       <form onSubmit={handleSubmit}>
-        <label>Email:
-          <input type="email" value={email} onChange={e => setEmail(e.target.value)} required />
-        </label>
-        <label>Password:
-          <input type="password" value={password} onChange={e => setPassword(e.target.value)} required />
-        </label>
-        <button type="submit">Login</button>
+        <label>Email:</label>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <label>Password:</label>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <button type="submit">{isRegister ? 'Register' : 'Login'}</button>
         {error && <p>{error}</p>}
       </form>
+      <button onClick={toggleMode}>
+        {isRegister
+          ? 'Already have an account? Sign in'
+          : "Don't have an account? Register"}
+      </button>
     </div>
   );
 }
 export default Login;
+
+
+
+
+
+
+
 
 
 
