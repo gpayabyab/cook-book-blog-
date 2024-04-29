@@ -1,52 +1,73 @@
-import SavedRecipes from "../models/SavedRecipes.js";
+// import user model
+const { User } = require('../models');
+// import sign token function from auth
+const { signToken } = require('../utils/auth');
 
-/* READ */
-export const getSavedRecipe = async (req, res) => {
-  try {
-    const { userId } = req.params;
-    const savedRecipes = await SavedRecipes.find({ userId });
-    res.status(200).json(savedRecipes[0].recipeId);
-  } catch (err) {
-    res.status(404).json({ message: err.message });
-  }
-};
+module.exports = {
+  // get a single user by either their id or their username
+  async getSingleUser({ user = null, params }, res) {
+    const foundUser = await User.findOne({
+      $or: [{ _id: user ? user._id : params.id }, { username: params.username }],
+    });
 
-/* UPDATE */
-
-
-export const updateSavedRecipe = async (req, res) => {
-  try {
-    const { userId } = req.params;
-    const { recipeId } = req.body;
-    const userSavedRecipe = await SavedRecipes.find({ userId });
-    if(userSavedRecipe.length === 0) {
-      const newSavedRecipes = new SavedRecipes({
-        userId, 
-        recipeId: recipeId
-      })
-      await newSavedRecipes.save();
+    if (!foundUser) {
+      return res.status(400).json({ message: 'Cannot find a user with this id!' });
     }
-    else if (
-      userSavedRecipe.length !== 0 &&
-      userSavedRecipe[0].recipeId.includes(recipeId)
-    ) {
-      userSavedRecipe[0].recipeId = userSavedRecipe[0].recipeId.filter(
-        (id) => id !== recipeId
+
+    res.json(foundUser);
+  },
+  // create a user, sign a token, and send it back (to client/src/components/SignUpForm.js)
+  async createUser({ body }, res) {
+    const user = await User.create(body);
+
+    if (!user) {
+      return res.status(400).json({ message: 'Something is wrong!' });
+    }
+    const token = signToken(user);
+    res.json({ token, user });
+  },
+  // login a user, sign a token, and send it back (to client/src/components/LoginForm.js)
+  // {body} is destructured req.body
+  async login({ body }, res) {
+    const user = await User.findOne({ $or: [{ username: body.username }, { email: body.email }] });
+    if (!user) {
+      return res.status(400).json({ message: "Can't find this user" });
+    }
+
+    const correctPw = await user.isCorrectPassword(body.password);
+
+    if (!correctPw) {
+      return res.status(400).json({ message: 'Wrong password!' });
+    }
+    const token = signToken(user);
+    res.json({ token, user });
+  },
+  
+  // user comes from `req.user` created in the auth middleware function
+  async saveRecipe({ user, body }, res) {
+    console.log(user);
+    try {
+      const updatedUser = await User.findOneAndUpdate(
+        { _id: user._id },
+        { $addToSet: { savedRecipes: body } },
+        { new: true, runValidators: true }
       );
+      return res.json(updatedUser);
+    } catch (err) {
+      console.log(err);
+      return res.status(400).json(err);
     }
-    else{
-      userSavedRecipe[0].recipeId.push(recipeId);
-    } 
-    const updatedSavedRecipes = await SavedRecipes.findByIdAndUpdate(
-      userSavedRecipe[0]._id,
-      { 
-        userId,
-        recipeId: [...userSavedRecipe[0].recipeId]
-       },
+  },
+  // remove a book from `savedBooks`
+  async deleteRecipe({ user, params }, res) {
+    const updatedUser = await User.findOneAndUpdate(
+      { _id: user._id },
+      { $pull: { savedBooks: { bookId: params.bookId } } },
       { new: true }
     );
-    res.status(200).json(updatedSavedRecipes.recipeId);
-  } catch (err) {
-    res.status(404).json({ message: err.message });
-  }
+    if (!updatedUser) {
+      return res.status(404).json({ message: "Couldn't find user with this id!" });
+    }
+    return res.json(updatedUser);
+  },
 };
