@@ -58,11 +58,11 @@ module.exports = {
       return res.status(400).json(err);
     }
   },
-  // remove a book from `savedBooks`
+  // remove a recipe from `savedrecipe`
   async deleteRecipe({ user, params }, res) {
     const updatedUser = await User.findOneAndUpdate(
       { _id: user._id },
-      { $pull: { savedBooks: { bookId: params.bookId } } },
+      { $pull: { savedRecipes: { recipeId: params.recipeId } } },
       { new: true }
     );
     if (!updatedUser) {
