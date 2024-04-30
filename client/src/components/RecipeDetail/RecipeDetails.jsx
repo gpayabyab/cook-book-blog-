@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import './RecipeDetail.css'
 import { useParams } from 'react-router-dom';
 function RecipeDetails() {
   const [recipe, setRecipe] = useState(null);
