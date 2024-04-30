@@ -1,17 +1,22 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux'; // Import if using Redux
+import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-import App from './App'; // Adjust the path as necessary
-import store from './utils/store'; // Adjust the path as necessary if using Redux
+import { Provider } from 'react-redux';
+import App from './App';
+import store from './utils/store'; // Update this path if necessary
 import './index.css'; // Assuming global styles are placed here
-ReactDOM.render(
+// Grab the root element
+const rootElement = document.getElementById('root');
+if (!rootElement) throw new Error('Failed to find the root element');
+// Create a root
+const root = ReactDOM.createRoot(rootElement);
+// Initial render: Render the <App /> into the root
+root.render(
   <React.StrictMode>
-    <Provider store={store}> {/* Only include this line if using Redux */}
+    <Provider store={store}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
     </Provider>
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 );

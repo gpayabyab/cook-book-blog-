@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './AddRecipe.css'
 function AddRecipe() {
   const [formData, setFormData] = useState({
     title: '',
