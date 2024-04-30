@@ -20,7 +20,6 @@ const typeDefs = gql `
     recipeImage: String
   },
   type Query {
-    me:User
 
   },
   type Auth{

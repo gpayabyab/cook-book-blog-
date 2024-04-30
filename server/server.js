@@ -3,6 +3,9 @@ const { ApolloServer } = require('@apollo/server');
 const { expressMiddleware } = require('@apollo/server/express4');
 const path = require('path');
 
+// Use routes
+const authRoutes = require('./routes/authRoutes');
+const recipeRoutes = require('./routes/recipeRoutes');
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 
@@ -12,13 +15,7 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
 });
-//complete code below
-// const startApolloServer = {};
 
-//startApolloServer();
-
-
-//  Not sure if this is needed
 // Apply Apollo GraphQL middleware to Express
 server.applyMiddleware({ app });
 
@@ -26,7 +23,10 @@ server.applyMiddleware({ app });
 if (process.env.NODE_ENV === 'production') {
   // Set static folder
   app.use(express.static('client/build'));
+  app.use('/api/auth', authRoutes);
+  app.use('/api/recipes', recipeRoutes);
 
+  
   app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
   });
