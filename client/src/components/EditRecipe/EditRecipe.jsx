@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 function EditRecipe() {
   const [formData, setFormData] = useState({
     title: '',
@@ -9,7 +9,7 @@ function EditRecipe() {
     steps: ''
   });
   const { id } = useParams();
-  const history = useHistory();
+  const navigate = useNavigate();
   useEffect(() => {
     fetchRecipe();
   }, []);
@@ -40,7 +40,7 @@ function EditRecipe() {
     try {
       await axios.put(`/api/recipes/${id}`, updatedRecipe);
       alert('Recipe updated successfully!');
-      history.push('/recipes'); // Redirect to the list of recipes or the detail page
+      navigate('/recipes'); // Redirect to the list of recipes or the detail page
     } catch (error) {
       console.error('Error updating recipe:', error);
       alert('Failed to update recipe.');

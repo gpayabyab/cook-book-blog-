@@ -1,31 +1,62 @@
-/* Login.css */
-
-.login-form {
-    background-color: #fff;
-    padding: 20px;
-    margin-top: 20px;
+.login-container {
+    max-width: 320px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-  
-  .login-form label {
-    display: block;
-    margin-bottom: 10px;
+  .login-container h2 {
+    text-align: center;
+    margin-bottom: 1rem;
   }
-  
-  .login-form input[type="email"],
-  .login-form input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
+  .login-container form {
+    display: flex;
+    flex-direction: column;
   }
-  
-  .login-form button {
-    padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
+  .login-container label {
+    margin-bottom: 0.5rem;
+  }
+  .login-container input[type="email"],
+  .login-container input[type="password"] {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  .login-container button {
+    padding: 0.5rem;
     border: none;
+    border-radius: 4px;
+    background-color: #5cb85c;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .login-container button:hover {
+    background-color: #4cae4c;
+  }
+  .login-container .toggle-button {
+    background: none;
+    color: #337ab7;
+    padding: 0.5rem;
+    border: none;
+    text-decoration: underline;
     cursor: pointer;
   }
-  
-  .login-form button:hover {
-    background-color: #555;
+  .login-container .toggle-button:hover {
+    color: #23527c;
   }
+  .login-container p.error {
+    color: red;
+    font-size: 0.9rem;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
