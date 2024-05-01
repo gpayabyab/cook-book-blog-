@@ -20,6 +20,12 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
+  savedRecipies: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Recipe'
+    }
+  ]
 });
 
 userSchema.pre('save', async function (next) {
