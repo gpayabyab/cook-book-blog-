@@ -11,6 +11,7 @@ const typeDefs = `
     _id: ID
     name: String
     description: String
+    ingredients: [String]
     image: String
   }
 
