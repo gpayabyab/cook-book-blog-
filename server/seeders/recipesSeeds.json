@@ -1,0 +1,77 @@
+[
+  {
+    "name": "Classic Margherita Pizza",
+    "description": "Top a ready pizza dough with tomato sauce, sliced mozzarella, fresh tomato slices, and basil. Drizzle with olive oil and bake in a preheated oven at 475°F for about 10-12 minutes.",
+    "ingredients": ["pizza dough", "tomato sauce", "fresh mozzarella cheese", "tomatoes", "fresh basil", "olive oil", "salt"]
+  },
+  {
+    "name": "Vegan Chili",
+    "description": "Sauté onions, garlic, and bell peppers. Add carrots and celery, cook until soft. Stir in tomatoes and beans. Season with chili powder, cumin, and paprika. Simmer for 30 minutes.",
+    "ingredients": ["onion", "garlic", "bell peppers", "carrots", "celery", "tomatoes", "kidney beans", "black beans", "corn", "chili powder", "cumin", "paprika", "salt", "pepper"]
+  },
+  {
+    "name": "Banana Bread",
+    "description": "Mash ripe bananas. Mix with sugar, egg, and melted butter. Combine with flour, baking soda, and cinnamon. Pour into a loaf pan and bake at 350°F for about 50 minutes.",
+    "ingredients": ["ripe bananas", "sugar", "egg", "vanilla extract", "butter", "flour", "baking soda", "salt", "cinnamon"]
+  },
+  {
+    "name": "Caesar Salad",
+    "description": "Toss chopped romaine lettuce with Caesar dressing, croutons, and Parmesan cheese. Serve with a squeeze of lemon juice and freshly ground black pepper.",
+    "ingredients": ["romaine lettuce", "Caesar dressing", "croutons", "Parmesan cheese", "lemon juice", "black pepper"]
+  },
+  {
+    "name": "Beef Stroganoff",
+    "description": "Brown beef slices in butter, remove. Cook mushrooms and onions in same pan. Stir in flour, then broth, and return beef. Stir in sour cream and mustard, serve over cooked noodles.",
+    "ingredients": ["beef sirloin", "mushrooms", "onion", "garlic", "butter", "flour", "beef broth", "sour cream", "Dijon mustard", "egg noodles", "parsley", "salt", "pepper"]
+  },
+  {
+    "name": "Chicken Tikka Masala",
+    "description": "Marinate chicken in yogurt and spices, then grill. Sauté onions, garlic, and ginger, add tomato puree and cream, then cooked chicken. Simmer and garnish with cilantro.",
+    "ingredients": ["chicken breasts", "yogurt", "lemon juice", "turmeric", "garam masala", "cumin", "paprika", "tomato puree", "cream", "onion", "garlic", "ginger", "cilantro"]
+  },
+  {
+    "name": "Avocado Toast",
+    "description": "Mash ripe avocado with lemon juice, salt, and pepper. Spread on toasted bread. Drizzle with olive oil and sprinkle with red pepper flakes.",
+    "ingredients": ["bread", "ripe avocado", "olive oil", "lemon juice", "salt", "pepper", "red pepper flakes"]
+  },
+  {
+    "name": "Spaghetti Carbonara",
+    "description": "Cook spaghetti. Render pancetta in oil. Beat eggs with Parmesan, salt, and pepper. Toss hot pasta with pancetta, then egg mixture. Serve immediately with extra cheese.",
+    "ingredients": ["spaghetti", "pancetta", "eggs", "Parmesan cheese", "black pepper", "salt"]
+  },
+  {
+    "name": "Butternut Squash Soup",
+    "description": "Roast butternut squash until tender. Sauté onions and garlic, add squash and broth. Blend until smooth, stir in cream. Season with thyme, salt, and pepper.",
+    "ingredients": ["butternut squash", "onion", "garlic", "vegetable broth", "cream", "thyme", "salt", "pepper", "olive oil"]
+  },
+  {
+    "name": "Greek Salad",
+    "description": "Combine chopped cucumbers, tomatoes, red onion, feta cheese, and olives. Dress with olive oil, lemon juice, and oregano. Season with salt and pepper.",
+    "ingredients": ["cucumbers", "tomatoes", "red onion", "feta cheese", "Kalamata olives", "olive oil", "lemon juice", "oregano", "salt", "pepper"]
+  },
+  {
+    "name": "Shakshuka",
+    "description": "Sauté onions, garlic, and bell peppers with spices. Add tomatoes and simmer until thick. Crack eggs into sauce. Cover and cook until eggs are set. Garnish with cilantro.",
+    "ingredients": ["eggs", "tomatoes", "bell pepper", "onion", "garlic", "cumin", "paprika", "cilantro", "olive oil", "salt", "pepper"]
+  },
+  {
+    "name": "Fish Tacos",
+    "description": "Season fish and fry until cooked. Combine cabbage, mayo, and lime for slaw. Serve fish in tortillas with slaw and chipotle sauce.",
+    "ingredients": ["white fish", "cabbage", "lime", "mayonnaise", "chipotle peppers in adobo", "flour tortillas", "cilantro", "salt", "pepper"]
+  },
+  {
+    "name": "Mushroom Risotto",
+    "description": "Sauté onions, garlic, and mushrooms. Add rice, cook until translucent. Gradually add broth, stirring constantly. Finish with Parmesan cheese and butter.",
+    "ingredients": ["arborio rice", "mushrooms", "chicken broth", "onion", "garlic", "white wine", "Parmesan cheese", "butter", "olive oil", "salt", "pepper"]
+  },
+  {
+    "name": "Pad Thai",
+    "description": "Soak rice noodles. Fry eggs, remove. Cook garlic, add noodles, sauce, and a little water. Mix in egg, bean sprouts, and green onions. Serve with lime and peanuts.",
+    "ingredients": ["rice noodles", "eggs", "bean sprouts", "green onions", "garlic", "peanuts", "lime", "tamarind paste", "fish sauce", "sugar", "chili powder", "cilantro"]
+  },
+  {
+    "name": "Pumpkin Pie",
+    "description": "Mix pumpkin puree with eggs, cream, sugar, and spices. Pour into pie crust. Bake at 375°F for about 50 minutes. Cool before serving.",
+    "ingredients": ["pumpkin puree", "eggs", "heavy cream", "sugar", "cinnamon", "ginger", "nutmeg", "pie crust"]
+  }
+]
