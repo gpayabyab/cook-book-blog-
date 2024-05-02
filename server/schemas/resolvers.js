@@ -18,7 +18,7 @@ const resolvers = {
     recipe: async (parent, { recipeId }) => {
       return Recipe.findOne({ _id: recipeId });
     },
-    recipies: async () => {
+    recipes: async () => {
       return Recipe.find();
     },
   },
@@ -28,7 +28,7 @@ const resolvers = {
       if (context.user) {
         const userData = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { savedRecipies: recipeId } },
+          { $addToSet: { savedRecipes: recipeId } },
           { new: true }
         );
         return userData
@@ -40,7 +40,7 @@ const resolvers = {
       if (context.user) {
         const userData = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedRecipies: recipeId } },
+          { $pull: { savedRecipes: recipeId } },
           { new: true }
         );
         return userData
