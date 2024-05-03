@@ -1,9 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
 import App from './App';
-import store from './utils/store'; // Update this path if necessary
+import { ApolloProvider, ApolloClient, InMemoryCache, HttpLink } from '@apollo/client';
+const client = new ApolloClient({
+  link: new HttpLink({ uri: 'http://localhost:4000/graphql' }),
+  cache: new InMemoryCache()
+});
 import './index.css'; // Assuming global styles are placed here
 // Grab the root element
 const rootElement = document.getElementById('root');
@@ -13,10 +16,10 @@ const root = ReactDOM.createRoot(rootElement);
 // Initial render: Render the <App /> into the root
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
+  
+    <ApolloProvider client={client}>
         <App />
-      </BrowserRouter>
-    </Provider>
+        </ApolloProvider>, 
+  
   </React.StrictMode>
 );

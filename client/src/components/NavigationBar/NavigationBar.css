@@ -1,28 +1,56 @@
 .nav-wrapper {
+  background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #333;
-  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 .brand-logo {
-  color: white;
+  color: #ffffff;
+  font-size: 1.5em;
   text-decoration: none;
-  font-size: 1.5rem;
 }
-.nav-links {
+ul {
   list-style: none;
   display: flex;
-  gap: 1rem;
+  margin: 0;
+  padding: 0;
 }
-.nav-links li a {
-  color: white;
+li {
+  padding: 0 15px;
+}
+li a, li button {
+  color: #ffffff;
   text-decoration: none;
-  padding: 0.5rem 1rem;
-  transition: background-color 0.3s ease;
+  font-size: 1em;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
-.nav-links li a:hover,
-.nav-links li a:focus {
-  background-color: #555;
+li button {
+  padding: 5px 10px;
 }
-/* Add more styling as needed... */
+li a:hover, li button:hover {
+  color: #ffcc00;
+}
+@media (max-width: 768px) {
+  .nav-wrapper {
+    flex-direction: column;
+  }
+  ul {
+    flex-direction: column;
+    width: 100%;
+  }
+  li {
+    text-align: center;
+    padding: 10px 0;
+  }
+}
+
+
+
+
+
+
+
