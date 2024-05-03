@@ -27,10 +27,17 @@ const typeDefs = `
     user:User
   }
 
+  input RecipeInput {
+    name: String
+    description: String
+    ingredients: [String]
+    image: String
+  }
+
   type Mutation {
     addUser(name:String!,lastName:String!, email: String!, password: String!):Auth
     login (email: String!, password: String!): Auth
-    saveRecipeToUser(recipeID: ID!):User
+    saveRecipeToUser(recipeData: RecipeInput! ):User
     removeRecipe(recipeID: ID!):User
   },
 `;
