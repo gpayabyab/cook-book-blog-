@@ -28,7 +28,7 @@ const typeDefs = `
   }
 
   type Mutation {
-    addUser(username:String!, email: String!, password: String!):Auth
+    addUser(name:String!,lastName:String!, email: String!, password: String!):Auth
     login (email: String!, password: String!): Auth
     saveRecipeToUser(recipeID: ID!):User
     removeRecipe(recipeID: ID!):User

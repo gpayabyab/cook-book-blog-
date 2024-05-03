@@ -1,4 +1,4 @@
-const { User, Recipe } = require("../models");
+const { User, Recipe,SavedRecipe } = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
 
 const resolvers = {

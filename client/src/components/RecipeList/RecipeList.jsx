@@ -1,31 +1,36 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import './RecipeList.css'
-import { Link } from 'react-router-dom';
-function RecipeList() {
-  const [recipes, setRecipes] = useState([]);
-  useEffect(() => {
-    fetchRecipes();
-  }, []);
-  const fetchRecipes = async () => {
-    try {
-      const response = await axios.get('/api/recipes');
-      setRecipes(response.data);
-    } catch (error) {
-      console.error('Error fetching recipes:', error);
+import React from 'react';
+import { useQuery, useMutation, gql } from '@apollo/client';
+const GET_RECIPES = gql`
+  query {
+    recipes {
+      id
+      name
+      description
+      ingredients
+      instructions
     }
-  };
+  }
+`;
+const SAVE_RECIPE = gql`
+  mutation SaveRecipe($recipeId: ID!) {
+    saveRecipe(recipeId: $recipeId) {
+      id
+    }
+  }
+`;
+function RecipeList() {
+  const { loading, error, data } = useQuery(GET_RECIPES);
+  const [saveRecipe] = useMutation(SAVE_RECIPE);
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error</p>;
   return (
-    <div>
-      <h1>Recipes</h1>
-      <ul>
-        {recipes.map(recipe => (
-          <li key={recipe._id}>
-            <Link to={`/recipes/${recipe._id}`}>{recipe.title}</Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <ul>
+      {data.recipes.map(({ id, name }) => (
+        <li key={id}>
+          {name} <button onClick={() => saveRecipe({ variables: { recipeId: id } })}>Save</button>
+        </li>
+      ))}
+    </ul>
   );
 }
 export default RecipeList;

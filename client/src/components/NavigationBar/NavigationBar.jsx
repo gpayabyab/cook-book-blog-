@@ -5,20 +5,18 @@ function NavigationBar({ isLoggedIn, onLogout }) {
   return (
     <nav>
       <div className="nav-wrapper">
-        {/* Logo or Brand Name */}
         <Link to="/" className="brand-logo">Recipe Blog</Link>
-        {/* Navigation Links */}
-        <ul id="nav-mobile" className="right hide-on-med-and-down">
+        <ul className="right">
           <li><Link to="/">Home</Link></li>
           {isLoggedIn ? (
             <>
               <li><Link to="/add-recipe">Add Recipe</Link></li>
-              {/* Add more protected links here */}
               <li><button onClick={onLogout}>Logout</button></li>
             </>
           ) : (
             <>
-              <li><Link to="/login">Login</Link></li>
+              <li><Link to="/login?mode=signup">Signup</Link></li>
+              <li><Link to="/login?mode=login">Login</Link></li>
             </>
           )}
         </ul>
@@ -27,3 +25,17 @@ function NavigationBar({ isLoggedIn, onLogout }) {
   );
 }
 export default NavigationBar;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
