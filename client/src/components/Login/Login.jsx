@@ -1,74 +1,57 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './Login.css'
+import { useNavigate, useLocation } from 'react-router-dom';
+import './Login.css';
 function Login({ onLogin }) {
-  const [isRegister, setIsRegister] = useState(false);
+  const [formMode, setFormMode] = useState('login'); // Default to login
+  const [name, setName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
+  const location = useLocation();
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    setFormMode(searchParams.get('mode') || 'login');
+  }, [location]);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const endpoint = isRegister ? '/api/auth/register' : '/api/auth/login';
+    const endpoint = formMode === 'signup' ? '/api/auth/register' : '/api/auth/login';
+    const data = formMode === 'signup' ? { name, lastName, email, password } : { email, password };
     try {
-      const response = await axios.post(endpoint, { email, password });
-      if (isRegister) {
-        console.log('Registration successful:', response.data);
-        setIsRegister(false); // Switch to login view after successful registration
-      } else {
-        console.log('Login successful:', response.data);
-        onLogin(response.data); // handle login
-      }
+      const response =await axios.post(endpoint, data);
+      localStorage.setItem('token',response.data.token);
+      console.log(`${formMode === 'signup' ? 'Registration' : 'Login'} successful`, response.data);
+     
+      onLogin(response.data); // Update authentication state
+      navigate('/'); // Navigate to the recipe list page
       setError('');
     } catch (err) {
       setError('An error occurred. Please try again.');
       console.error('Error:', err);
     }
   };
-  const toggleMode = () => {
-    setIsRegister(!isRegister);
-    setError('');
-  };
   return (
-    <div>
-      <h2>{isRegister ? 'Register' : 'Login'}</h2>
+    <div className="login-container">
+      <h2>{formMode === 'signup' ? 'Register' : 'Login'}</h2>
       <form onSubmit={handleSubmit}>
+        {formMode === 'signup' && (
+          <>
+            <label>Name:</label>
+            <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
+            <label>Last Name:</label>
+            <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} required />
+          </>
+        )}
         <label>Email:</label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
         <label>Password:</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit">{isRegister ? 'Register' : 'Login'}</button>
+        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+        <button type="submit">{formMode === 'signup' ? 'Register' : 'Login'}</button>
         {error && <p>{error}</p>}
       </form>
-      <button onClick={toggleMode}>
-        {isRegister
-          ? 'Already have an account? Sign in'
-          : "Don't have an account? Register"}
-      </button>
     </div>
   );
 }
 export default Login;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
