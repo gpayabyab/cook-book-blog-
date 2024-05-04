@@ -24,11 +24,11 @@ const resolvers = {
   },
   Mutation: {
     // Resolver to save a recipe for a user
-    saveRecipeToUser: async (_, { recipeData }, context) => {
+    saveRecipeToUser: async (_, { recipeId }, context) => {
       if (context.user) {
         const userData = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $push: { savedRecipes: recipeData } },
+          { $push: { savedRecipes: recipeId } },
           { new: true }
         );
         return userData

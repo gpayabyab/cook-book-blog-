@@ -35,10 +35,10 @@ const typeDefs = `
   }
 
   type Mutation {
-    addUser(name:String!,lastName:String!, email: String!, password: String!):Auth
+    addUser(username:String!, email: String!, password: String!):Auth
     login (email: String!, password: String!): Auth
-    saveRecipeToUser(recipeData: RecipeInput! ):User
-    removeRecipe(recipeID: ID!):User
+    saveRecipeToUser(recipeId: String!):User
+    removeRecipe(recipeId: ID!):User
   },
 `;
 
