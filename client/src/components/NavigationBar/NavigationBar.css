@@ -1,56 +1,27 @@
-.nav-wrapper {
-  background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
-  padding: 10px 20px;
+nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  background-color: #333;
+  padding: 0.5rem 1rem;
 }
-.brand-logo {
-  color: #ffffff;
-  font-size: 1.5em;
+nav a, nav button {
+  color: white;
   text-decoration: none;
-}
-ul {
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
-}
-li {
-  padding: 0 15px;
-}
-li a, li button {
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 1em;
+  margin: 0 10px;
+  font-size: 16px;
   background: none;
   border: none;
   cursor: pointer;
 }
-li button {
-  padding: 5px 10px;
+nav a:hover, nav button:hover {
+  text-decoration: underline;
 }
-li a:hover, li button:hover {
-  color: #ffcc00;
+.cookbook-title {
+  font-size: 24px; /* Larger font size for title */
+  color: #4CAF50; /* Different color for the title */
+  font-weight: bold;
 }
-@media (max-width: 768px) {
-  .nav-wrapper {
-    flex-direction: column;
-  }
-  ul {
-    flex-direction: column;
-    width: 100%;
-  }
-  li {
-    text-align: center;
-    padding: 10px 0;
-  }
+.auth-links {
+  display: flex;
 }
-
-
-
-
-
-
-

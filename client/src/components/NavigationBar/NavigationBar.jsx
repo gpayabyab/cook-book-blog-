@@ -1,41 +1,25 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './NavigationBar.css'
-function NavigationBar({ isLoggedIn, onLogout }) {
+import { Link, useNavigate } from 'react-router-dom';
+import './NavigationBar.css';
+import Auth from '../../utils/auth';
+const NavigationBar = () => {
   return (
     <nav>
-      <div className="nav-wrapper">
-        <Link to="/" className="brand-logo">Recipe Blog</Link>
-        <ul className="right">
-          <li><Link to="/">Home</Link></li>
-          {isLoggedIn ? (
-            <>
-              <li><Link to="/add-recipe">Add Recipe</Link></li>
-              <li><button onClick={onLogout}>Logout</button></li>
-            </>
-          ) : (
-            <>
-              <li><Link to="/login?mode=signup">Signup</Link></li>
-              <li><Link to="/login?mode=login">Login</Link></li>
-            </>
-          )}
-        </ul>
-      </div>
+      <span className="cookbook-title">Recipe Cookbook</span>
+      {Auth.loggedIn() ? (
+        <div className="auth-links">
+          <Link to="/">Home</Link>
+          <button onClick={() => Auth.logout()}>Logout</button>
+          <Link to="/my-recipes">My Recipes</Link>
+        </div>
+      ) : (
+        <div className="auth-links">
+          <Link to="/">Home</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/signup">Sign Up</Link>
+        </div>
+      )}
     </nav>
   );
-}
+};
 export default NavigationBar;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
