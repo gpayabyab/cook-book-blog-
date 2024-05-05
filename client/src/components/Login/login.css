@@ -27,8 +27,9 @@ button {
 button:hover {
   background-color: #45a049;
 }
-h2{
+h4{
   position: relative;
-  left: 900px;
+  left: 690px;
   color: blueviolet;
+  font-size: 25px;
 }

@@ -25,11 +25,12 @@ class AuthService {
 
   login(idToken) {
     localStorage.setItem("id_token", idToken);
-    window.location.assign("/recipe-list");
+    window.location.assign("/my-recipes");
   }
 
   logout() {
     localStorage.removeItem("id_token");
+    // localStorage.removeItem("saved_recipes");
     window.location.reload();
   }
 }

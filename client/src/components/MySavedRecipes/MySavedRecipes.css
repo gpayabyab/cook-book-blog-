@@ -6,9 +6,19 @@
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   }
-  h2 {
-    color: #333;
-    text-align: center;
+.greeting {
+  position: relative;        
+  top: 0px;               
+  left: 400px;          
+  transform: translate(-50%, -50%);
+  color: #ff6347;        
+  background-color: #ffebcd; 
+  padding: 10px;         
+  border: 2px solid #ffd700; 
+  text-shadow: 1px 1px 2px black; 
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2); 
+  font-size: 2em;        
+  z-index: 1000;     
   }
   .saved-recipe-item {
     background-color: #fff;
@@ -31,7 +41,7 @@
     color: #666;
     line-height: 1.6;
   }
-  button {
+  .deleteBtn {
     background-color: #dc3545;
     color: white;
     border: none;
@@ -41,7 +51,8 @@
     border-radius: 4px;
     transition: background-color 0.3s;
   }
-  button:hover {
-    background-color: #c82333;
+ 
+  .images{
+    max-width: 150px;
+    height: auto;
   }
-  

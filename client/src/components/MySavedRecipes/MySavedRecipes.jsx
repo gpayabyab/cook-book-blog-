@@ -2,7 +2,7 @@ import React from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_USER } from "../../utils/queries";
 import { REMOVE_RECIPE } from "../../utils/mutation";
-
+import './MySavedRecipes.css'
 import { removeRecipeId } from "../../utils/localStorage";
 // Make sure these are correctly imported from your utils
 function MySavedRecipes() {
@@ -24,25 +24,25 @@ function MySavedRecipes() {
 
   return (
     <div className="container">
-      <h2>Welcome to your saved recipes,{userData.username}</h2>
+      <h2 className='greeting'>Welcome to your saved recipes,{userData.username}</h2>
       {userData.savedRecipes?.length ? (
         userData.savedRecipes.map(
           ({ _id, name, ingredients, image, description }) => (
             <div key={_id} className="saved-recipe-item">
               <h3>{name}</h3>
-              <img
+              <img className='images'
                 src={image}
                 alt={name}
-                width={100}
+                
               />
               <p>{Array.isArray(ingredients)? ingredients.join(', '): ''}</p>
               <p>{description}</p>
-              <button onClick={() => handleDelete(_id)}>Delete</button>
+              <button className='deleteBtn' onClick={() => handleDelete(_id)}>Delete</button>
             </div>
           )
         )
       ) : (
-        <h1>No Recipes Saved</h1>
+        <h1 className='noRecipe'>No Recipes Saved</h1>
       )}
     </div>
   );
