@@ -40,9 +40,9 @@ function RecipeList() {
   return (
     <div>
       {recipeData.map(({ _id, name, ingredients, description, image }) => (
-        <div key={_id}>
+        <div class='recipe-container' key={_id}>
           <h3>{name}</h3>
-          <p>{ingredients}</p>
+          <p style={{color:'purple'}}>{Array.isArray(ingredients)? ingredients.join(', '): ''}</p>
           <p>{description}</p>
           <img src={image} alt={name} width={100}/>
           <button 

@@ -24,7 +24,7 @@ function MySavedRecipes() {
 
   return (
     <div className="container">
-      <h2>{userData.username}'s Saved Recipes</h2>
+      <h2>Welcome to your saved recipes,{userData.username}</h2>
       {userData.savedRecipes?.length ? (
         userData.savedRecipes.map(
           ({ _id, name, ingredients, image, description }) => (
@@ -33,9 +33,9 @@ function MySavedRecipes() {
               <img
                 src={image}
                 alt={name}
-                style={{ width: "100%", height: "auto" }}
+                width={100}
               />
-              <p>{ingredients}</p>
+              <p>{Array.isArray(ingredients)? ingredients.join(', '): ''}</p>
               <p>{description}</p>
               <button onClick={() => handleDelete(_id)}>Delete</button>
             </div>

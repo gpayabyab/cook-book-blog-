@@ -9,8 +9,9 @@ const NavigationBar = () => {
       {Auth.loggedIn() ? (
         <div className="auth-links">
           <Link to="/">Home</Link>
-          <button onClick={() => Auth.logout()}>Logout</button>
+          <Link to="/recipe-list">Recipes List</Link>
           <Link to="/my-recipes">My Recipes</Link>
+          <button onClick={() => Auth.logout()}>Logout</button>
         </div>
       ) : (
         <div className="auth-links">
