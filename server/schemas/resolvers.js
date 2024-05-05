@@ -1,9 +1,9 @@
-const { User, Recipe,SavedRecipe } = require("../models");
+const { User, Recipe } = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
 
 const resolvers = {
   Query: {
-    users: async (parent, args) => {
+    users: async (parent, args, context) => {
       if (context.user) {
         return User.find().populate("savedRecipes");
       }
@@ -26,12 +26,12 @@ const resolvers = {
     // Resolver to save a recipe for a user
     saveRecipeToUser: async (_, { recipeId }, context) => {
       if (context.user) {
-        const userData = await User.findByIdAndUpdate(
+        const userData = await User.findOneAndUpdate(
           { _id: context.user._id },
           { $push: { savedRecipes: recipeId } },
           { new: true }
         );
-        return userData
+        return userData;
       }
       throw AuthenticationError;
     },
@@ -43,7 +43,7 @@ const resolvers = {
           { $pull: { savedRecipes: recipeId } },
           { new: true }
         );
-        return userData
+        return userData;
       }
       throw AuthenticationError;
     },

@@ -1,7 +1,10 @@
 /* General Resets and Basic Styles */
 html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
   font-family: 'Arial', sans-serif;
 }
 /* Layout Containers */
@@ -29,15 +32,21 @@ html, body {
   text-decoration: none;
   padding: 10px;
 }
+
+/* Main container */
+main{
+  position: relative;
+  min-height: 100vh;
+}
+
 /* Footer Styles */
 .footer {
   background-color: #333;
-  color: white;
+  color: #333;
   text-align: center;
   padding: 10px 20px;
   position: fixed;
   bottom: 0;
-  left: 0;
   width: 100%;
 }
 /* Form Styles */
