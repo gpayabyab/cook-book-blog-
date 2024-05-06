@@ -44,7 +44,7 @@ Please make sure to update tests as appropriate.
 
 ## Watchlive 
 
-[Live Demo]([https://cook-book-blog.herokuapp.com/](https://recipecookbook.onrender.com)) 
+[Live Demo] (https://recipecookbook.onrender.com)) 
 
 
 ## License
