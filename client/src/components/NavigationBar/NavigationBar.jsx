@@ -5,7 +5,7 @@ import Auth from '../../utils/auth';
 const NavigationBar = () => {
   return (
     <nav>
-      <span className="cookbook-title">Recipe Cookbook</span>
+      <span className="cookbook-title"  style={{ fontSize: '25px', fontFamily: 'Cursive' }}>Recipe Cookbook</span>
       {Auth.loggedIn() ? (
         <div className="auth-links">
           <Link to="/">Home</Link>

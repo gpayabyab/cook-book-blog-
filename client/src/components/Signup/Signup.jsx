@@ -37,18 +37,24 @@ const SignUp = () => {
     }
   };
   return (
-    <div>
-      <h2>Sign Up</h2>
-      {error && <p className="error">{error}</p>}
-      <form onSubmit={handleSubmit}>
-        {/* <input type="text" name="name" placeholder="First Name" value={formData.name} onChange={handleInputChange} />
-        <input type="text" name="lastName" placeholder="Last Name" value={formData.lastName} onChange={handleInputChange} /> */}
-        <input type="text" name="username" placeholder="Username" value={formData.username} onChange={handleInputChange} />
-      <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleInputChange} />
-        <input type="password" name="password" placeholder="Password" value={formData.password} onChange={handleInputChange} />
-        <button type="submit" disabled={loading}>Sign Up</button>
-      </form>
+    <main className="flex-row justify-center mb-4">
+    <div className="col-12 col-lg-10">
+      <div className="card">
+        <h4 className="card-header bg-dark text-light p-6">Sign Up</h4>
+        <div className="card-body">
+          {error && <p className="error">{error}</p>}
+          <form onSubmit={handleSubmit}>
+            {/* <input type="text" name="name" placeholder="First Name" value={formData.name} onChange={handleInputChange} />
+            <input type="text" name="lastName" placeholder="Last Name" value={formData.lastName} onChange={handleInputChange} /> */}
+            <input type="text" name="username" placeholder="Username" value={formData.username} onChange={handleInputChange} />
+            <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleInputChange} />
+            <input type="password" name="password" placeholder="Password" value={formData.password} onChange={handleInputChange} />
+            <button type="submit" disabled={loading}>Sign Up</button>
+          </form>
+        </div>
+      </div>
     </div>
-  );
+  </main>
+);
 };
 export default SignUp;
