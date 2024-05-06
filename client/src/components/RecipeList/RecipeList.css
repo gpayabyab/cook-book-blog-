@@ -6,7 +6,7 @@
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-/* .recipe-item {
+ .recipe-item {
   background-color: #fff;
   margin-bottom: 20px;
   padding: 15px;
@@ -27,8 +27,8 @@
   margin-bottom: 10px;
   border-radius: 4px;
 }
-button {
-  background-color: #28a745;
+.saveButton {
+  background-color: #dc3545;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -36,14 +36,44 @@ button {
   cursor: pointer;
   border-radius: 4px;
   transition: background-color 0.3s;
+  margin-left: 50px;
 }
-button:hover {
-  background-color: #218838;
+
+button:disabled {
+  background-color: #28a745;
 }
-button:first-of-type {
-  margin-right: 10px;
-  background-color: #007bff;
+ 
+.recipes-container{
+  position: relative;
+  left: 30px;
 }
-button:first-of-type:hover {
-  background-color: #0056b3;
-} */
+.recipe-container{
+ position: relative;
+left: 20px;}
+
+.recipe-list {
+  padding-top: 70px; /* Adjust padding to ensure it does not hide under fixed navbar */
+}
+.recipe-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+.recipe-list li {
+  background: white;
+  padding: 20px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.recipe-list li a {
+  color: #333;
+  text-decoration: none;
+}
+/* Recipe Details */
+.recipe-detail {
+  padding-top: 70px; /* Adjust padding to not hide under navbar */
+  padding: 20px;
+  background: white;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}

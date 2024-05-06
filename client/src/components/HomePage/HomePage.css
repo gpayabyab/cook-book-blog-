@@ -18,5 +18,8 @@
   .home-container p {
     font-size: 1.5rem;
     max-width: 600px;
+    color:rgb(27, 7, 87);
+    text-decoration: double;
+    font-weight: bolder;
   }
   

@@ -25,3 +25,21 @@ nav a:hover, nav button:hover {
 .auth-links {
   display: flex;
 }
+.auth-links {
+  display: flex;         /* Aligns children (links and button) in a row */
+  justify-content: space-around; /* Distributes space around items */
+  align-items: center;   /* Vertically centers the items */
+  padding: 10px;         /* Adds some padding around the items */
+  background-color: #333; /* Light grey background */
+  border-radius: 5px;    /* Rounds the corners of the container */
+}
+.auth-links a, .auth-links button {
+  font-weight: bold;     /* Makes text bold */
+  color: #e22a2a;           /* Dark grey text color */
+  text-decoration: none; /* Removes underline from links */
+  margin: 0 10px;        /* Adds margin to the left and right */
+  padding: 8px 16px;     /* Adds padding to make links/button larger */
+  border: none;          /* Removes border from button */
+  background: none;      /* Removes background from button */
+  cursor: pointer;       /* Changes cursor to pointer on hover */
+}
