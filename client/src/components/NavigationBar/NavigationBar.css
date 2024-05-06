@@ -19,7 +19,7 @@ nav a:hover, nav button:hover {
 }
 .cookbook-title {
   font-size: 24px; /* Larger font size for title */
-  color: #4CAF50; /* Different color for the title */
+  color: #f1f5f1; /* Different color for the title */
   font-weight: bold;
 }
 .auth-links {
@@ -35,7 +35,7 @@ nav a:hover, nav button:hover {
 }
 .auth-links a, .auth-links button {
   font-weight: bold;     /* Makes text bold */
-  color: #e22a2a;           /* Dark grey text color */
+  color: #f7f4f4;           /* Dark grey text color */
   text-decoration: none; /* Removes underline from links */
   margin: 0 10px;        /* Adds margin to the left and right */
   padding: 8px 16px;     /* Adds padding to make links/button larger */
