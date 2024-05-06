@@ -4,6 +4,8 @@ import { GET_USER } from "../../utils/queries";
 import { REMOVE_RECIPE } from "../../utils/mutation";
 import './MySavedRecipes.css'
 import { removeRecipeId } from "../../utils/localStorage";
+
+import { FaTrashCan } from "react-icons/fa6";
 // Make sure these are correctly imported from your utils
 function MySavedRecipes() {
   // Adjust according to your authentication method
@@ -24,7 +26,7 @@ function MySavedRecipes() {
 
   return (
     <div className="container">
-      <h2 className='greeting'>Welcome to your saved recipes,{userData.username}</h2>
+      <h2 className='greeting' style={{textAlign: 'center'}}>Welcome to your saved recipes,{userData.username}</h2>
       {userData.savedRecipes?.length ? (
         userData.savedRecipes.map(
           ({ _id, name, ingredients, image, description }) => (
@@ -37,7 +39,7 @@ function MySavedRecipes() {
               />
               <p>{Array.isArray(ingredients)? ingredients.join(', '): ''}</p>
               <p>{description}</p>
-              <button className='deleteBtn' onClick={() => handleDelete(_id)}>Delete</button>
+              <button className='deleteBtn' onClick={() => handleDelete(_id)}><FaTrashCan /></button>
             </div>
           )
         )
