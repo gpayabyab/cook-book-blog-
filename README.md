@@ -18,15 +18,22 @@ npm run develop
 ## Screenshots 
 This is homepage
 
-![alt text](image.png)
+![image](https://github.com/gpayabyab/cook-book-blog-/assets/149645563/eae7b6f0-9510-46d2-9079-60be46ffdcc1)
+
 
 This is singup page
 
-![alt text](image-1.png)
+![image](https://github.com/gpayabyab/cook-book-blog-/assets/149645563/4d69bf08-5623-4f09-aa4a-0e23cbcc7b90)
+
 
 This is the recpies page
 
-![alt text](../assets/)
+![image](https://github.com/gpayabyab/cook-book-blog-/assets/149645563/f41d7d42-25c3-4fb2-813f-7c2e13da438a)
+
+
+This is my recpies page 
+
+![image](https://github.com/gpayabyab/cook-book-blog-/assets/149645563/7bc27408-9b13-4f03-bbc6-677b34ac8079)
 
 ## Contributing
 
@@ -37,7 +44,7 @@ Please make sure to update tests as appropriate.
 
 ## Watchlive 
 
-[Live Demo](https://cook-book-blog.herokuapp.com/) ###  need to add live demo link after deployment
+[Live Demo]([https://cook-book-blog.herokuapp.com/](https://recipecookbook.onrender.com)) 
 
 
 ## License
@@ -45,3 +52,7 @@ Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Credits
+Thank you to Louis Delia for helping and give advice.
+Thank you to Vinnie Lopez the tutor in Bootcampspot.
